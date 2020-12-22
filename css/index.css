@@ -31,13 +31,84 @@ a {
 .logo {
     width: 100%;
     height: 20%;
-    background-color: blue;
+    background-color: rgb(247, 247, 247);
 }
 
 .logo .top {
     width: 100%;
     height: 30%;
     background-color: #f7f7f7;
+    border-bottom: 1px solid #7a7878;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 132px;
+    top: -40px;
+}
+
+.contrast {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    filter: contrast(15);
+    animation: hueRotate 5s linear infinite;
+}
+
+.flash {
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    right: 30px;
+    bottom: 0;
+    filter: blur(8px);
+    animation: hueRotate 5s linear infinite;
+    /* z-index: 4; */
+    filter: contrast(15);
+}
+
+@keyframes circle {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes hueRotate {
+    0% {
+        filter: contrast(15) hue-rotate(0);
+    }
+    100% {
+        filter: contrast(15) hue-rotate(360deg);
+    }
+}
+
+.flash::before {
+    content: "";
+    width: 120px;
+    height: 120px;
+    background-color: #00ff6f;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 42% 48% 62% 49% / 45%;
+}
+
+.flash::after {
+    content: "";
+    width: 104px;
+    height: 105px;
+    position: absolute;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
 }
 
 .item {
@@ -71,7 +142,6 @@ a {
 .logo .serch {
     width: 100%;
     height: 70%;
-    background-color: #FF7F50;
 }
 
 .serch-item {
@@ -127,6 +197,7 @@ button a {
     position: relative;
     width: 100%;
     height: 20%;
+    background-color: rgb(255, 255, 255);
 }
 
 .nav-left {
@@ -184,9 +255,10 @@ button a {
     height: 180px;
     transition: all .5s;
     color: #2F2929;
-    background-color: white;
-    border: .5px solid #ccc;
+    background-color: rgb(255, 255, 255);
+    border: .5px solid rgb(146, 13, 13);
     border-top: none;
+    z-index: 99;
 }
 
 .nav-right-item ul li {
@@ -198,7 +270,6 @@ button a {
     border-top: 1px solid #ccc;
     width: 40%;
     height: 40%;
-    background-color: coral;
     position: relative;
 }
 
@@ -248,7 +319,6 @@ button a {
 .sidebar .foucs ul {
     position: absolute;
     top: 30px;
-    /* left: 40px; */
     width: 1920px;
     height: 180px;
 }
@@ -376,53 +446,39 @@ button a {
     border-top: 1px solid #ccc;
     width: 60%;
     height: 40%;
-    background-color: cyan;
 }
 
-.d1 {
+.d1,
+.d2,
+.d3,
+.d4 {
     width: 50%;
     height: 50%;
-    background-color: pink;
 }
 
-.d1 .d1-item {
+.d1-item {
     margin-top: 6px;
     margin-left: 10px;
     width: 30%;
     height: 90%;
     float: left;
     background-color: #FF0000;
+    opacity: .4;
 }
 
-.d1 .d1-item:hover {
+.d1 .d1-item:hover,
+.d2 .d1-item:hover,
+.d3 .d1-item:hover,
+.d4 .d1-item:hover {
     box-shadow: 2px 2px 8px;
     transform: translateY(-4px);
     transition: all .2s;
-}
-
-.d2 {
-    width: 50%;
-    height: 50%;
-    background-color: #bbb;
-}
-
-.d3 {
-    width: 50%;
-    height: 50%;
-    background-color: #acb;
-}
-
-.d4 {
-    width: 50%;
-    height: 50%;
-    background-color: #456;
 }
 
 .footer {
     clear: both;
     width: 100%;
     height: 160px;
-    /* background-color: darkblue; */
     background-color: #2F2929;
 }
 
@@ -440,7 +496,6 @@ button a {
     position: absolute;
     width: 200px;
     height: 100px;
-    background-color: #2F2929;
     margin-top: 10px;
 }
 
